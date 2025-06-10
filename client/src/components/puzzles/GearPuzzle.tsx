@@ -37,32 +37,32 @@ export default function GearPuzzle() {
 
   if (solved[4]) {
     return (
-      <div className="border border-green-500 p-2 bg-green-100 rounded">
-        <span className="text-green-800">✓ Gears Solved</span>
+      <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
+        <span className="text-green-400">✓ Tools Installed</span>
       </div>
     );
   }
 
   return (
-    <div className="border border-gray-500 p-2 bg-black bg-opacity-80 rounded">
-      <div className="text-white text-sm mb-2">Drag gears to slots:</div>
+    <div className="border border-blue-500 p-2 bg-black bg-opacity-90 rounded">
+      <div className="text-blue-400 text-sm mb-2 font-mono">Install Tools:</div>
       <div className="flex gap-2 mb-2">
         {!gear1Placed && (
           <div
             draggable
             onDragStart={(e) => handleDragStart(e, "gear1")}
-            className="text-2xl cursor-grab select-none"
+            className="text-xl cursor-grab select-none bg-gray-700 px-2 py-1 rounded border border-gray-500 text-white"
           >
-            ⚙️
+            🔧
           </div>
         )}
         {!gear2Placed && (
           <div
             draggable
             onDragStart={(e) => handleDragStart(e, "gear2")}
-            className="text-2xl cursor-grab select-none"
+            className="text-xl cursor-grab select-none bg-gray-700 px-2 py-1 rounded border border-gray-500 text-white"
           >
-            ⚙️
+            🔌
           </div>
         )}
       </div>
@@ -70,16 +70,16 @@ export default function GearPuzzle() {
         <div
           onDrop={(e) => handleDrop(e, "slot1")}
           onDragOver={handleDragOver}
-          className="w-10 h-10 border border-dashed border-gray-400 flex items-center justify-center"
+          className="w-12 h-10 border border-dashed border-blue-400 flex items-center justify-center bg-gray-800 rounded text-xs text-gray-400"
         >
-          {gear1Placed && <span className="text-2xl">⚙️</span>}
+          {gear1Placed ? <span className="text-lg">🔧</span> : "TOOL"}
         </div>
         <div
           onDrop={(e) => handleDrop(e, "slot2")}
           onDragOver={handleDragOver}
-          className="w-10 h-10 border border-dashed border-gray-400 flex items-center justify-center"
+          className="w-12 h-10 border border-dashed border-blue-400 flex items-center justify-center bg-gray-800 rounded text-xs text-gray-400"
         >
-          {gear2Placed && <span className="text-2xl">⚙️</span>}
+          {gear2Placed ? <span className="text-lg">🔌</span> : "PWR"}
         </div>
       </div>
     </div>

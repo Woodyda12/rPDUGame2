@@ -16,22 +16,23 @@ export default function ROT13Puzzle() {
 
   if (solved[5]) {
     return (
-      <div className="border border-green-500 p-2 bg-green-100 rounded">
-        <span className="text-green-800">✓ ROT13 Solved</span>
+      <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
+        <span className="text-green-400">✓ Diagnostic Complete</span>
       </div>
     );
   }
 
   return (
-    <div className="border border-gray-500 p-2 bg-black bg-opacity-80 rounded">
-      <div className="text-white text-sm mb-1">Note ROT13: 748</div>
+    <div className="border border-purple-500 p-2 bg-black bg-opacity-90 rounded">
+      <div className="text-purple-400 text-sm mb-1 font-mono">Error Code: 748</div>
       <input
         type="text"
         value={input}
         onChange={handleChange}
-        className="w-16 px-1 text-black text-sm"
+        className="w-16 px-1 text-purple-400 text-sm bg-black border border-gray-600 font-mono"
         placeholder="???"
       />
+      <div className="text-xs text-gray-400 mt-1">Decode to resolve</div>
     </div>
   );
 }

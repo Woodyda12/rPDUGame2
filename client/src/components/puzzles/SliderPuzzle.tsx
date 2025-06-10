@@ -17,23 +17,24 @@ export default function SliderPuzzle() {
 
   if (solved[3]) {
     return (
-      <div className="border border-green-500 p-2 bg-green-100 rounded">
-        <span className="text-green-800">✓ Slider Solved</span>
+      <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
+        <span className="text-green-400">✓ Power Level Calibrated</span>
       </div>
     );
   }
 
   return (
-    <div className="border border-gray-500 p-2 bg-black bg-opacity-80 rounded">
-      <div className="text-white text-sm mb-1">Slider: {value}</div>
+    <div className="border border-orange-500 p-2 bg-black bg-opacity-90 rounded">
+      <div className="text-orange-400 text-sm mb-1 font-mono">Power Level: {value}%</div>
       <input
         type="range"
         min="0"
         max="100"
         value={value}
         onChange={handleChange}
-        className="w-30"
+        className="w-32 accent-orange-500"
       />
+      <div className="text-xs text-gray-400 mt-1">Target: 42%</div>
     </div>
   );
 }

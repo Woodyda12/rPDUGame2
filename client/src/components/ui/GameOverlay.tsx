@@ -38,26 +38,32 @@ export default function GameOverlay() {
           <ROT13Puzzle />
         </div>
         
-        {/* Success Message */}
-        {isComplete && (
-          <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 pointer-events-auto">
-            <div className="bg-white p-8 rounded-lg text-center">
-              <h2 className="text-2xl font-bold mb-4">🎉 Escaped! 🎉</h2>
-              <p className="text-lg">
-                Time: {completionTime} seconds
-              </p>
-              <p className="text-sm mt-2 text-gray-600">
-                Screenshot this achievement!
-              </p>
-              <button
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-                onClick={() => window.location.reload()}
-              >
-                Play Again
-              </button>
+        {/* PDU Status Display */}
+        <div className="absolute top-4 left-4 pointer-events-auto">
+          <div className="bg-black bg-opacity-90 border border-gray-600 p-3 rounded font-mono text-sm">
+            <div className="text-yellow-400 mb-2">PDU Status:</div>
+            <div className="space-y-1">
+              <div className={`${solved[0] ? 'text-green-400' : 'text-red-400'}`}>
+                ACCESS: {solved[0] ? 'UNLOCKED' : 'LOCKED'}
+              </div>
+              <div className={`${solved[1] ? 'text-green-400' : 'text-red-400'}`}>
+                SEQUENCE: {solved[1] ? 'COMPLETE' : 'PENDING'}
+              </div>
+              <div className={`${solved[2] ? 'text-green-400' : 'text-red-400'}`}>
+                NETWORK: {solved[2] ? 'ONLINE' : 'OFFLINE'}
+              </div>
+              <div className={`${solved[3] ? 'text-green-400' : 'text-red-400'}`}>
+                POWER: {solved[3] ? 'STABLE' : 'UNSTABLE'}
+              </div>
+              <div className={`${solved[4] ? 'text-green-400' : 'text-red-400'}`}>
+                TOOLS: {solved[4] ? 'READY' : 'MISSING'}
+              </div>
+              <div className={`${solved[5] ? 'text-green-400' : 'text-red-400'}`}>
+                DIAG: {solved[5] ? 'CLEAR' : 'ERROR'}
+              </div>
             </div>
           </div>
-        )}
+        </div>
       </div>
     </div>
   );

@@ -2,10 +2,12 @@ import React, { useRef, useCallback } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Mesh, Raycaster, Vector2, Color } from "three";
 import { useEscapeRoom } from "../lib/stores/useEscapeRoom";
+import { useGame } from "../lib/stores/useGame";
 
 export default function Scene3D() {
   const { camera, gl } = useThree();
   const { solvePuzzle, addColorToSequence } = useEscapeRoom();
+  const { phase } = useGame();
   
   // Object refs
   const keypadRef = useRef<any>(null);
@@ -19,6 +21,8 @@ export default function Scene3D() {
   const mouse = new Vector2();
 
   const handleClick = useCallback((event: MouseEvent) => {
+    if (phase !== "playing") return;
+    
     const canvas = gl.domElement;
     const rect = canvas.getBoundingClientRect();
     
@@ -36,29 +40,29 @@ export default function Scene3D() {
       yellowBoxRef.current
     ].filter(Boolean) as Mesh[];
     
-    const intersects = raycaster.intersectObjects(objects);
+    const intersects = raycaster.intersectObjects(objects, true);
     
     if (intersects.length > 0) {
       const clickedObject = intersects[0].object;
       
-      if (clickedObject === keypadRef.current) {
-        const code = prompt('Enter code:');
+      if (clickedObject === keypadRef.current || clickedObject.parent === keypadRef.current) {
+        const code = prompt('Enter PDU access code:');
         if (code === '314') {
           solvePuzzle(0);
         }
       } else if (clickedObject === paintingRef.current) {
         solvePuzzle(2);
-      } else if (clickedObject === redBoxRef.current) {
+      } else if (clickedObject === redBoxRef.current || clickedObject.parent?.children.includes(redBoxRef.current!)) {
         addColorToSequence('r');
-      } else if (clickedObject === greenBoxRef.current) {
+      } else if (clickedObject === greenBoxRef.current || clickedObject.parent?.children.includes(greenBoxRef.current!)) {
         addColorToSequence('g');
-      } else if (clickedObject === blueBoxRef.current) {
+      } else if (clickedObject === blueBoxRef.current || clickedObject.parent?.children.includes(blueBoxRef.current!)) {
         addColorToSequence('b');
-      } else if (clickedObject === yellowBoxRef.current) {
+      } else if (clickedObject === yellowBoxRef.current || clickedObject.parent?.children.includes(yellowBoxRef.current!)) {
         addColorToSequence('y');
       }
     }
-  }, [camera, gl, solvePuzzle, addColorToSequence]);
+  }, [camera, gl, solvePuzzle, addColorToSequence, phase]);
 
   useFrame(() => {
     // Animation loop - can add any continuous updates here
@@ -73,8 +77,12 @@ export default function Scene3D() {
 
   return (
     <>
-      {/* Lighting */}
-      <ambientLight intensity={1} />
+      {/* Data center lighting */}
+      <ambientLight intensity={0.3} color="#1a1a2e" />
+      <directionalLight position={[5, 10, 5]} intensity={0.8} color="#ffffff" castShadow />
+      <pointLight position={[-3, 2, -2]} intensity={0.5} color="#00ff00" />
+      <pointLight position={[3, 2, -2]} intensity={0.5} color="#00aa00" />
+      <spotLight position={[0, 4, 0]} intensity={0.6} color="#ffffff" angle={Math.PI / 3} />
       
       {/* Data center floor - raised floor tiles */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>

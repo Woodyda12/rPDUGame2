@@ -2,22 +2,36 @@ import { Canvas } from "@react-three/fiber";
 import { Suspense, useEffect } from "react";
 import Scene3D from "./Scene3D";
 import GameOverlay from "./ui/GameOverlay";
+import TitleScreen from "./ui/TitleScreen";
+import EndScreen from "./ui/EndScreen";
+import Timer from "./ui/Timer";
 import { useEscapeRoom } from "../lib/stores/useEscapeRoom";
 import { useAudio } from "../lib/stores/useAudio";
+import { useGame } from "../lib/stores/useGame";
 
 export default function EscapeRoom() {
-  const { solved, checkComplete } = useEscapeRoom();
+  const { solved } = useEscapeRoom();
   const { playSuccess } = useAudio();
+  const { phase, end } = useGame();
 
   useEffect(() => {
     // Check if all puzzles are solved
-    if (solved.every(Boolean)) {
+    if (phase === "playing" && solved.every(Boolean)) {
       playSuccess();
+      end(true);
     }
-  }, [solved, playSuccess]);
+  }, [solved, playSuccess, phase, end]);
+
+  if (phase === "title") {
+    return <TitleScreen />;
+  }
+
+  if (phase === "success" || phase === "failure") {
+    return <EndScreen />;
+  }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
+    <div style={{ width: '100%', height: '100%', position: 'relative', backgroundColor: '#0a0a0a' }}>
       <Canvas
         camera={{
           position: [0, 1.6, 5],
@@ -32,7 +46,7 @@ export default function EscapeRoom() {
           maxHeight: '100%',
           margin: '0 auto',
           display: 'block',
-          background: '#000'
+          background: '#111'
         }}
       >
         <Suspense fallback={null}>
@@ -40,6 +54,7 @@ export default function EscapeRoom() {
         </Suspense>
       </Canvas>
       
+      <Timer />
       <GameOverlay />
     </div>
   );
