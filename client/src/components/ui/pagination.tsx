@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/pagination.tsx - See README for details.
 import * as React from "react"
 import { ChevronLeft, ChevronRight, MoreHorizontal } from "lucide-react"
 

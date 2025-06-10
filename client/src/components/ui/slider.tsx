@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/slider.tsx - See README for details.
 import * as React from "react"
 import * as SliderPrimitive from "@radix-ui/react-slider"
 

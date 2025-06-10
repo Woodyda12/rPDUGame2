@@ -1,3 +1,4 @@
+// NOTE: drizzle.config.ts - See README for details.
 import { defineConfig } from "drizzle-kit";
 
 if (!process.env.DATABASE_URL) {

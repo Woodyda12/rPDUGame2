@@ -1,3 +1,4 @@
+// NOTE: client/src/lib/stores/useEscapeRoom.tsx - See README for details.
 import { create } from "zustand";
 import { subscribeWithSelector } from "zustand/middleware";
 

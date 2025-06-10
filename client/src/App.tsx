@@ -1,3 +1,4 @@
+// NOTE: client/src/App.tsx - See README for details.
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
 import EscapeRoom from "./components/EscapeRoom";

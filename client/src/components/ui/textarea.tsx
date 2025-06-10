@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/textarea.tsx - See README for details.
 import * as React from "react"
 
 import { cn } from "@/lib/utils"

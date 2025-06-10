@@ -1,7 +1,8 @@
+// NOTE: client/src/components/puzzles/KeypadPuzzle.tsx - See README for details.
 import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function KeypadPuzzle() {
+function KeypadPuzzle() {
   const { solvePuzzle, solved } = useEscapeRoom();
   const [input, setInput] = useState("");
   
@@ -45,3 +46,5 @@ export default function KeypadPuzzle() {
     </div>
   );
 }
+
+export default React.memo(KeypadPuzzle);

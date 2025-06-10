@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/collapsible.tsx - See README for details.
 "use client"
 
 import * as CollapsiblePrimitive from "@radix-ui/react-collapsible"

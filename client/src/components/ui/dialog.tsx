@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/dialog.tsx - See README for details.
 "use client"
 
 import * as React from "react"

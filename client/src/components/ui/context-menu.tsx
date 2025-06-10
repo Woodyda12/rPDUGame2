@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/context-menu.tsx - See README for details.
 import * as React from "react"
 import * as ContextMenuPrimitive from "@radix-ui/react-context-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"

@@ -1,7 +1,8 @@
+// NOTE: client/src/components/puzzles/SliderPuzzle.tsx - See README for details.
 import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function SliderPuzzle() {
+function SliderPuzzle() {
   const { solvePuzzle, solved } = useEscapeRoom();
   const [value, setValue] = useState(0);
   
@@ -38,3 +39,5 @@ export default function SliderPuzzle() {
     </div>
   );
 }
+
+export default React.memo(SliderPuzzle);

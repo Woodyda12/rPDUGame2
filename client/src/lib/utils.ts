@@ -1,3 +1,4 @@
+// NOTE: client/src/lib/utils.ts - See README for details.
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 

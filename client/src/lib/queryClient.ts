@@ -1,3 +1,4 @@
+// NOTE: client/src/lib/queryClient.ts - See README for details.
 import { QueryClient, QueryFunction } from "@tanstack/react-query";
 
 async function throwIfResNotOk(res: Response) {

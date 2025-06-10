@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/resizable.tsx - See README for details.
 "use client"
 
 import { GripVertical } from "lucide-react"

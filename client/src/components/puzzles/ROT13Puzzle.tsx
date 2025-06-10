@@ -1,7 +1,8 @@
+// NOTE: client/src/components/puzzles/ROT13Puzzle.tsx - See README for details.
 import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function ROT13Puzzle() {
+function ROT13Puzzle() {
   const { solvePuzzle, solved } = useEscapeRoom();
   const [input, setInput] = useState("");
   
@@ -36,3 +37,5 @@ export default function ROT13Puzzle() {
     </div>
   );
 }
+
+export default React.memo(ROT13Puzzle);

@@ -1,3 +1,5 @@
+// NOTE: client/src/components/ui/GameOverlay.tsx - See README for details.
+import React from "react";
 import KeypadPuzzle from "../puzzles/KeypadPuzzle";
 import SliderPuzzle from "../puzzles/SliderPuzzle";
 import GearPuzzle from "../puzzles/GearPuzzle";
@@ -6,7 +8,7 @@ import HintSystem from "./HintSystem";
 import SequenceIndicator from "./SequenceIndicator";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function GameOverlay() {
+function GameOverlay() {
   const { solved, startTime, isComplete } = useEscapeRoom();
   
   const completionTime = isComplete ? Math.floor((Date.now() - startTime) / 1000) : 0;
@@ -70,3 +72,5 @@ export default function GameOverlay() {
     </div>
   );
 }
+
+export default React.memo(GameOverlay);

@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/scroll-area.tsx - See README for details.
 import * as React from "react"
 import * as ScrollAreaPrimitive from "@radix-ui/react-scroll-area"
 

@@ -1,3 +1,4 @@
+// NOTE: client/src/hooks/use-is-mobile.tsx - See README for details.
 import * as React from "react"
 
 const MOBILE_BREAKPOINT = 768

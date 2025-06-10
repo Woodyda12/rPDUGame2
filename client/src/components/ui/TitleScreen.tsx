@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/TitleScreen.tsx - See README for details.
 import React from "react";
 import { useGame } from "../../lib/stores/useGame";
 

@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/interface.tsx - See README for details.
 import { useEffect } from "react";
 import { useGame } from "@/lib/stores/useGame";
 import { useAudio } from "@/lib/stores/useAudio";

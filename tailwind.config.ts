@@ -1,3 +1,4 @@
+// NOTE: tailwind.config.ts - See README for details.
 import type { Config } from "tailwindcss";
 
 export default {

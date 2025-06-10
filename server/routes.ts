@@ -1,3 +1,4 @@
+// NOTE: server/routes.ts - See README for details.
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";

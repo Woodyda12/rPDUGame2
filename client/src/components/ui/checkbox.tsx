@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/checkbox.tsx - See README for details.
 import * as React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Check } from "lucide-react"

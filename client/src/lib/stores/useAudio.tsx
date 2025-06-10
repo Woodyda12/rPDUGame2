@@ -1,3 +1,4 @@
+// NOTE: client/src/lib/stores/useAudio.tsx - See README for details.
 import { create } from "zustand";
 
 interface AudioState {
@@ -34,8 +35,9 @@ export const useAudio = create<AudioState>((set, get) => ({
     // Just update the muted state
     set({ isMuted: newMutedState });
     
-    // Log the change
-    console.log(`Sound ${newMutedState ? 'muted' : 'unmuted'}`);
+    if (process.env.NODE_ENV !== 'production') {
+      console.log(`Sound ${newMutedState ? 'muted' : 'unmuted'}`);
+    }
   },
   
   playHit: () => {
@@ -43,7 +45,9 @@ export const useAudio = create<AudioState>((set, get) => ({
     if (hitSound) {
       // If sound is muted, don't play anything
       if (isMuted) {
-        console.log("Hit sound skipped (muted)");
+        if (process.env.NODE_ENV !== 'production') {
+          console.log("Hit sound skipped (muted)");
+        }
         return;
       }
       
@@ -51,7 +55,9 @@ export const useAudio = create<AudioState>((set, get) => ({
       const soundClone = hitSound.cloneNode() as HTMLAudioElement;
       soundClone.volume = 0.3;
       soundClone.play().catch(error => {
-        console.log("Hit sound play prevented:", error);
+        if (process.env.NODE_ENV !== 'production') {
+          console.log("Hit sound play prevented:", error);
+        }
       });
     }
   },
@@ -61,13 +67,17 @@ export const useAudio = create<AudioState>((set, get) => ({
     if (successSound) {
       // If sound is muted, don't play anything
       if (isMuted) {
-        console.log("Success sound skipped (muted)");
+        if (process.env.NODE_ENV !== 'production') {
+          console.log("Success sound skipped (muted)");
+        }
         return;
       }
       
       successSound.currentTime = 0;
       successSound.play().catch(error => {
-        console.log("Success sound play prevented:", error);
+        if (process.env.NODE_ENV !== 'production') {
+          console.log("Success sound play prevented:", error);
+        }
       });
     }
   }

@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/separator.tsx - See README for details.
 import * as React from "react"
 import * as SeparatorPrimitive from "@radix-ui/react-separator"
 
