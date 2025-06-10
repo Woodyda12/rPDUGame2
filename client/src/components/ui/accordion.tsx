@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/accordion.tsx - See README for details.
 import * as React from "react"
 import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { ChevronDown } from "lucide-react"

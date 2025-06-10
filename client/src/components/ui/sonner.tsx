@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/sonner.tsx - See README for details.
 "use client"
 
 import { useTheme } from "next-themes"

@@ -1,7 +1,8 @@
+// NOTE: client/src/components/ui/SequenceIndicator.tsx - See README for details.
 import React from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function SequenceIndicator() {
+function SequenceIndicator() {
   const { colorSequence, solved } = useEscapeRoom();
   
   if (solved[1]) return null;
@@ -48,3 +49,5 @@ export default function SequenceIndicator() {
     </div>
   );
 }
+
+export default React.memo(SequenceIndicator);

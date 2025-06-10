@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/toggle-group.tsx - See README for details.
 "use client"
 
 import * as React from "react"

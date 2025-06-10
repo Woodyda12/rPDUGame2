@@ -1,3 +1,4 @@
+// NOTE: client/src/pages/not-found.tsx - See README for details.
 import { Card, CardContent } from "@/components/ui/card";
 import { AlertCircle } from "lucide-react";
 

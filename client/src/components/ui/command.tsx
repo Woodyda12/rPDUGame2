@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/command.tsx - See README for details.
 import * as React from "react"
 import { type DialogProps } from "@radix-ui/react-dialog"
 import { Command as CommandPrimitive } from "cmdk"

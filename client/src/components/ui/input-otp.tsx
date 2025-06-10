@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/input-otp.tsx - See README for details.
 import * as React from "react"
 import { OTPInput, OTPInputContext } from "input-otp"
 import { Minus } from "lucide-react"

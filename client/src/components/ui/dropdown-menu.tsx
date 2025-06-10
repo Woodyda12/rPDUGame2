@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/dropdown-menu.tsx - See README for details.
 import * as React from "react"
 import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
 import { Check, ChevronRight, Circle } from "lucide-react"

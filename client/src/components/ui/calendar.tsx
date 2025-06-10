@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/calendar.tsx - See README for details.
 import * as React from "react"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { DayPicker } from "react-day-picker"

@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/HintSystem.tsx - See README for details.
 import React, { useState } from "react";
 import { useGame } from "../../lib/stores/useGame";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";

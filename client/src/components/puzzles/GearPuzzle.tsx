@@ -1,7 +1,8 @@
+// NOTE: client/src/components/puzzles/GearPuzzle.tsx - See README for details.
 import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
-export default function GearPuzzle() {
+function GearPuzzle() {
   const { solvePuzzle, solved } = useEscapeRoom();
   const [gear1Placed, setGear1Placed] = useState(false);
   const [gear2Placed, setGear2Placed] = useState(false);
@@ -85,3 +86,5 @@ export default function GearPuzzle() {
     </div>
   );
 }
+
+export default React.memo(GearPuzzle);

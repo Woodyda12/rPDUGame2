@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/toggle.tsx - See README for details.
 import * as React from "react"
 import * as TogglePrimitive from "@radix-ui/react-toggle"
 import { cva, type VariantProps } from "class-variance-authority"

@@ -1,3 +1,4 @@
+// NOTE: vite.config.ts - See README for details.
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import path, { dirname } from "path";
@@ -9,6 +10,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
+  base: process.env.BASE_PATH || '/',
   plugins: [
     react(),
     runtimeErrorOverlay(),

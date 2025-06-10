@@ -1,3 +1,4 @@
+// NOTE: server/storage.ts - See README for details.
 import { users, type User, type InsertUser } from "@shared/schema";
 
 // modify the interface with any CRUD methods

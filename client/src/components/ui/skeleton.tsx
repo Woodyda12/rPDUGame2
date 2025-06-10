@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/skeleton.tsx - See README for details.
 import { cn } from "@/lib/utils"
 
 function Skeleton({

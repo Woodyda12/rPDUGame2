@@ -1,4 +1,5 @@
-import React, { useRef, useCallback, useState } from "react";
+// NOTE: client/src/components/Scene3D.tsx - See README for details.
+import React, { useRef, useCallback, useState, useMemo } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Mesh, Raycaster, Vector2, Color } from "three";
 import { useEscapeRoom } from "../lib/stores/useEscapeRoom";
@@ -18,8 +19,36 @@ export default function Scene3D() {
   const blueBoxRef = useRef<Mesh>(null);
   const yellowBoxRef = useRef<Mesh>(null);
 
-  const raycaster = new Raycaster();
-  const mouse = new Vector2();
+  // reuse Raycaster and Vector2 instances to avoid allocations
+  const raycaster = useRef(new Raycaster());
+  const mouse = useRef(new Vector2());
+
+  // pre-create static geometry arrays
+  const floorTiles = useMemo(() =>
+    Array.from({ length: 8 }, (_, i) =>
+      Array.from({ length: 8 }, (_, j) => (
+        <mesh
+          key={`tile-${i}-${j}`}
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[(i - 3.5) * 2, 0.01, (j - 3.5) * 2]}
+        >
+          <planeGeometry args={[1.8, 1.8]} />
+          <meshStandardMaterial color="#333" transparent opacity={0.5} />
+        </mesh>
+      ))
+    ),
+  []);
+
+  const trays = useMemo(
+    () =>
+      [-2, 0, 2].map((x, i) => (
+        <mesh key={`tray-${i}`} position={[x, 2.8, 0]} rotation={[0, 0, 0]}>
+          <boxGeometry args={[0.4, 0.1, 8]} />
+          <meshStandardMaterial color="#666666" />
+        </mesh>
+      )),
+    [],
+  );
 
   const handleMouseMove = useCallback((event: MouseEvent) => {
     if (phase !== "playing") return;
@@ -27,10 +56,10 @@ export default function Scene3D() {
     const canvas = gl.domElement;
     const rect = canvas.getBoundingClientRect();
     
-    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    mouse.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.current.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     
-    raycaster.setFromCamera(mouse, camera);
+    raycaster.current.setFromCamera(mouse.current, camera);
     
     const objects = [
       keypadRef.current,
@@ -41,7 +70,7 @@ export default function Scene3D() {
       yellowBoxRef.current
     ].filter(Boolean) as Mesh[];
     
-    const intersects = raycaster.intersectObjects(objects, true);
+    const intersects = raycaster.current.intersectObjects(objects, true);
     
     if (intersects.length > 0) {
       if (!isHovering) {
@@ -54,7 +83,7 @@ export default function Scene3D() {
         canvas.style.cursor = 'default';
       }
     }
-  }, [camera, gl, phase, isHovering, keypadRef, paintingRef, redBoxRef, greenBoxRef, blueBoxRef, yellowBoxRef]);
+  }, [camera, gl, phase, isHovering]);
 
   const handleClick = useCallback((event: MouseEvent) => {
     if (phase !== "playing") return;
@@ -62,10 +91,10 @@ export default function Scene3D() {
     const canvas = gl.domElement;
     const rect = canvas.getBoundingClientRect();
     
-    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
-    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    mouse.current.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.current.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
     
-    raycaster.setFromCamera(mouse, camera);
+    raycaster.current.setFromCamera(mouse.current, camera);
     
     const objects = [
       keypadRef.current,
@@ -76,7 +105,7 @@ export default function Scene3D() {
       yellowBoxRef.current
     ].filter(Boolean) as Mesh[];
     
-    const intersects = raycaster.intersectObjects(objects, true);
+    const intersects = raycaster.current.intersectObjects(objects, true);
     
     if (intersects.length > 0) {
       const clickedObject = intersects[0].object;
@@ -131,14 +160,7 @@ export default function Scene3D() {
       </mesh>
       
       {/* Floor grid pattern */}
-      {Array.from({ length: 8 }, (_, i) => 
-        Array.from({ length: 8 }, (_, j) => (
-          <mesh key={`tile-${i}-${j}`} rotation={[-Math.PI / 2, 0, 0]} position={[(i - 3.5) * 2, 0.01, (j - 3.5) * 2]}>
-            <planeGeometry args={[1.8, 1.8]} />
-            <meshStandardMaterial color="#333" transparent opacity={0.5} />
-          </mesh>
-        ))
-      )}
+      {floorTiles}
       
       {/* Main PDU Unit (was keypad) */}
       <group ref={keypadRef} position={[-3, 1.2, -2]}>
@@ -225,12 +247,7 @@ export default function Scene3D() {
       </mesh>
       
       {/* Overhead Cable Trays */}
-      {[-2, 0, 2].map((x, i) => (
-        <mesh key={`tray-${i}`} position={[x, 2.8, 0]} rotation={[0, 0, 0]}>
-          <boxGeometry args={[0.4, 0.1, 8]} />
-          <meshStandardMaterial color="#666666" />
-        </mesh>
-      ))}
+      {trays}
       
       {/* Wall-mounted electrical panels */}
       <mesh position={[-4, 1.5, 0]}>

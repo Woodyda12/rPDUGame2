@@ -1,7 +1,10 @@
+// NOTE: client/src/components/EscapeRoom.tsx - See README for details.
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect } from "react";
-import Scene3D from "./Scene3D";
-import GameOverlay from "./ui/GameOverlay";
+import { Suspense, useEffect, lazy } from "react";
+
+// Lazy load heavier components to reduce initial bundle size
+const Scene3D = lazy(() => import("./Scene3D"));
+const GameOverlay = lazy(() => import("./ui/GameOverlay"));
 import TitleScreen from "./ui/TitleScreen";
 import EndScreen from "./ui/EndScreen";
 import Timer from "./ui/Timer";
@@ -63,7 +66,9 @@ export default function EscapeRoom() {
       </Canvas>
       
       <Timer />
-      <GameOverlay />
+      <Suspense fallback={null}>
+        <GameOverlay />
+      </Suspense>
     </div>
   );
 }

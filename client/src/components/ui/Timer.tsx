@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/Timer.tsx - See README for details.
 import React, { useEffect } from "react";
 import { useGame } from "../../lib/stores/useGame";
 

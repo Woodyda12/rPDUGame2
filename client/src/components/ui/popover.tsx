@@ -1,3 +1,4 @@
+// NOTE: client/src/components/ui/popover.tsx - See README for details.
 import * as React from "react"
 import * as PopoverPrimitive from "@radix-ui/react-popover"
 
