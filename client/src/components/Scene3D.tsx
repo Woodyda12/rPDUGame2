@@ -104,12 +104,16 @@ export default function Scene3D() {
     // Animation loop - can add any continuous updates here
   });
 
-  // Add click event listener
+  // Add event listeners
   React.useEffect(() => {
     const canvas = gl.domElement;
     canvas.addEventListener('pointerdown', handleClick);
-    return () => canvas.removeEventListener('pointerdown', handleClick);
-  }, [gl, handleClick]);
+    canvas.addEventListener('pointermove', handleMouseMove);
+    return () => {
+      canvas.removeEventListener('pointerdown', handleClick);
+      canvas.removeEventListener('pointermove', handleMouseMove);
+    };
+  }, [gl, handleClick, handleMouseMove]);
 
   return (
     <>

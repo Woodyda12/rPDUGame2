@@ -24,7 +24,7 @@ export default function SliderPuzzle() {
   }
 
   return (
-    <div className="border border-orange-500 p-2 bg-black bg-opacity-90 rounded">
+    <div className="border border-orange-500 p-2 bg-black bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
       <div className="text-orange-400 text-sm mb-1 font-mono">Power Level: {value}%</div>
       <input
         type="range"
@@ -32,7 +32,7 @@ export default function SliderPuzzle() {
         max="100"
         value={value}
         onChange={handleChange}
-        className="w-32 accent-orange-500"
+        className="w-32 accent-orange-500 cursor-pointer hover:accent-orange-400 transition-colors duration-200"
       />
       <div className="text-xs text-gray-400 mt-1">Target: 42%</div>
     </div>
