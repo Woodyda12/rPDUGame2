@@ -14,16 +14,19 @@ export default function GearPuzzle() {
     e.preventDefault();
     const gearId = e.dataTransfer.getData("text/plain");
     
+    let newGear1Placed = gear1Placed;
+    let newGear2Placed = gear2Placed;
+    
     if (slotId === "slot1" && gearId === "gear1") {
       setGear1Placed(true);
+      newGear1Placed = true;
     } else if (slotId === "slot2" && gearId === "gear2") {
       setGear2Placed(true);
+      newGear2Placed = true;
     }
     
-    // Check if both gears are placed after this drop
-    
-    if ((slotId === "slot1" && gearId === "gear1" && gear2Placed) ||
-        (slotId === "slot2" && gearId === "gear2" && gear1Placed)) {
+    // Check if both gears are now placed
+    if (newGear1Placed && newGear2Placed) {
       solvePuzzle(4);
     }
   };
