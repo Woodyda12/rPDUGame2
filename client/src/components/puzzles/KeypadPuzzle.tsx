@@ -17,27 +17,27 @@ export default function KeypadPuzzle() {
 
   if (solved[0]) {
     return (
-      <div className="border border-green-500 p-2 bg-green-100 rounded">
-        <span className="text-green-800">✓ Keypad Solved</span>
+      <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
+        <span className="text-green-400">✓ PDU Access Unlocked</span>
       </div>
     );
   }
 
   return (
-    <div className="border border-gray-500 p-2 bg-black bg-opacity-80 rounded">
-      <div className="text-white text-sm mb-2">Keypad Code:</div>
+    <div className="border border-red-500 p-2 bg-black bg-opacity-90 rounded">
+      <div className="text-red-400 text-sm mb-2 font-mono">PDU Access Code:</div>
       <div className="flex gap-1">
         <input
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          className="w-16 px-1 text-black text-sm"
+          className="w-16 px-1 text-green-400 text-sm bg-black border border-gray-600 font-mono"
           maxLength={3}
           placeholder="000"
         />
         <button
           onClick={handleSubmit}
-          className="px-2 py-1 bg-blue-500 text-white text-xs rounded hover:bg-blue-600"
+          className="px-2 py-1 bg-red-600 text-white text-xs rounded hover:bg-red-700 border border-red-400"
         >
           Enter
         </button>
