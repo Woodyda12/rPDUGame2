@@ -57,7 +57,7 @@ export default function EscapeRoom() {
           maxHeight: '100%',
           margin: '0 auto',
           display: 'block',
-          background: 'rgba(17, 17, 17, 0.7)'
+          background: 'rgba(34, 34, 34, 0.7)'
         }}
       >
         <Suspense fallback={null}>

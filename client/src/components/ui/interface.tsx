@@ -53,7 +53,7 @@ export function Interface() {
       
       {/* Game completion overlay */}
       {phase === "ended" && (
-        <div className="fixed inset-0 flex items-center justify-center z-20 bg-black/30">
+        <div className="fixed inset-0 flex items-center justify-center z-20 bg-neutral-900/40">
           <Card className="w-full max-w-md mx-4 shadow-lg">
             <CardHeader>
               <CardTitle className="flex items-center justify-center gap-2">

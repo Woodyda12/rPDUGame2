@@ -21,8 +21,8 @@ export default function Timer() {
   return (
     <div className={`fixed top-4 right-4 z-50 px-4 py-2 rounded-lg border-2 font-mono text-lg font-bold ${
       isLowTime 
-        ? 'bg-red-900 border-red-500 text-red-200 animate-pulse' 
-        : 'bg-gray-900 border-blue-500 text-blue-200'
+        ? 'bg-red-900 border-red-500 text-red-200 animate-pulse'
+        : 'bg-gray-800 border-blue-500 text-blue-200'
     }`}>
       <div className="flex items-center gap-2">
         <span className="text-sm">⏱</span>

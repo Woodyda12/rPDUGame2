@@ -45,7 +45,7 @@ function GearPuzzle() {
   }
 
   return (
-    <div className="border border-blue-500 p-2 bg-black bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
+    <div className="border border-blue-500 p-2 bg-gray-800 bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
       <div className="text-blue-400 text-sm mb-2 font-mono">Install Tools:</div>
       <div className="flex gap-2 mb-2">
         {!gear1Placed && (

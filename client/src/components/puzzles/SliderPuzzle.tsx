@@ -25,7 +25,7 @@ function SliderPuzzle() {
   }
 
   return (
-    <div className="border border-orange-500 p-2 bg-black bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
+    <div className="border border-orange-500 p-2 bg-gray-800 bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
       <div className="text-orange-400 text-sm mb-1 font-mono">Power Level: {value}%</div>
       <input
         type="range"

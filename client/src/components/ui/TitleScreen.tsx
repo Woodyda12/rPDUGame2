@@ -6,7 +6,7 @@ export default function TitleScreen() {
   const { start } = useGame();
 
   return (
-    <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-blue-900 to-black flex items-center justify-center">
+    <div className="absolute inset-0 bg-gradient-to-b from-gray-800 via-blue-800 to-gray-900 flex items-center justify-center">
       <div className="max-w-4xl mx-auto p-8 text-center">
         <div className="mb-8">
           <h1 className="text-6xl font-bold text-white mb-4 tracking-wide">
@@ -17,7 +17,7 @@ export default function TitleScreen() {
           </h2>
         </div>
         
-        <div className="bg-black bg-opacity-50 rounded-lg p-8 mb-8 border border-blue-500">
+        <div className="bg-gray-800 bg-opacity-70 rounded-lg p-8 mb-8 border border-blue-500">
           <h3 className="text-xl text-yellow-400 font-semibold mb-6">Instructions:</h3>
           
           <div className="text-left space-y-4 text-gray-200">

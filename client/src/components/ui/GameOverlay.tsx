@@ -41,7 +41,7 @@ function GameOverlay() {
         
         {/* PDU Status Display */}
         <div className="absolute top-4 left-4 pointer-events-auto">
-          <div className="bg-black bg-opacity-90 border border-gray-600 p-3 rounded font-mono text-sm">
+          <div className="bg-gray-800 bg-opacity-90 border border-gray-500 p-3 rounded font-mono text-sm">
             <div className="text-yellow-400 mb-2">PDU Status:</div>
             <div className="space-y-1">
               <div className={`${solved[0] ? 'text-green-400' : 'text-red-400'}`}>
