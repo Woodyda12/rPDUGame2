@@ -12,11 +12,11 @@ export default function EndScreen() {
   return (
     <div className={`absolute inset-0 flex items-center justify-center ${
       isSuccess 
-        ? 'bg-gradient-to-b from-green-900 via-blue-900 to-black' 
-        : 'bg-gradient-to-b from-red-900 via-gray-900 to-black'
+        ? 'bg-gradient-to-b from-green-800 via-blue-800 to-gray-900'
+        : 'bg-gradient-to-b from-red-800 via-gray-800 to-gray-900'
     }`}>
       <div className="max-w-2xl mx-auto p-8 text-center">
-        <div className="bg-black bg-opacity-70 rounded-lg p-8 border-2 border-opacity-50" 
+        <div className="bg-gray-800 bg-opacity-80 rounded-lg p-8 border-2 border-opacity-50"
              style={{ borderColor: isSuccess ? '#10b981' : '#ef4444' }}>
           
           <h1 className={`text-5xl font-bold mb-6 ${

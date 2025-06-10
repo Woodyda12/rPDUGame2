@@ -2,16 +2,16 @@
   <!-- Background -->
   <defs>
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0f1419;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#2c3350;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#273d66;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#212b39;stop-opacity:1" />
     </linearGradient>
     <linearGradient id="floorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#2a2a3a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#1a1a2a;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#4a4a5a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#30303c;stop-opacity:1" />
     </linearGradient>
     <pattern id="gridPattern" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-      <rect width="60" height="60" fill="none" stroke="#333" stroke-width="1" opacity="0.3"/>
+      <rect width="60" height="60" fill="none" stroke="#555" stroke-width="1" opacity="0.3"/>
     </pattern>
   </defs>
   
@@ -23,53 +23,53 @@
   <rect x="0" y="700" width="1920" height="380" fill="url(#gridPattern)"/>
   
   <!-- Server Racks - Left Side -->
-  <g id="leftRacks">
-    <rect x="50" y="300" width="80" height="400" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+    <g id="leftRacks">
+      <rect x="50" y="300" width="80" height="400" fill="#3a3a3a" stroke="#555" stroke-width="2"/>
     <rect x="60" y="320" width="60" height="15" fill="#00ff00" opacity="0.6"/>
     <rect x="60" y="350" width="60" height="15" fill="#ff8800" opacity="0.6"/>
     <rect x="60" y="380" width="60" height="15" fill="#0088ff" opacity="0.6"/>
     
-    <rect x="150" y="250" width="80" height="450" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+    <rect x="150" y="250" width="80" height="450" fill="#3a3a3a" stroke="#555" stroke-width="2"/>
     <rect x="160" y="270" width="60" height="15" fill="#00ff00" opacity="0.6"/>
     <rect x="160" y="300" width="60" height="15" fill="#00ff00" opacity="0.6"/>
     <rect x="160" y="330" width="60" height="15" fill="#ff8800" opacity="0.6"/>
   </g>
   
   <!-- Server Racks - Right Side -->
-  <g id="rightRacks">
-    <rect x="1690" y="280" width="80" height="420" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+    <g id="rightRacks">
+      <rect x="1690" y="280" width="80" height="420" fill="#3a3a3a" stroke="#555" stroke-width="2"/>
     <rect x="1700" y="300" width="60" height="15" fill="#00ff00" opacity="0.6"/>
     <rect x="1700" y="330" width="60" height="15" fill="#00ff00" opacity="0.6"/>
     <rect x="1700" y="360" width="60" height="15" fill="#ff8800" opacity="0.6"/>
     
-    <rect x="1590" y="320" width="80" height="380" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+      <rect x="1590" y="320" width="80" height="380" fill="#3a3a3a" stroke="#555" stroke-width="2"/>
     <rect x="1600" y="340" width="60" height="15" fill="#0088ff" opacity="0.6"/>
     <rect x="1600" y="370" width="60" height="15" fill="#ff8800" opacity="0.6"/>
   </g>
   
   <!-- Overhead Cable Trays -->
-  <g id="cableTrays">
-    <rect x="300" y="150" width="1320" height="20" fill="#444" stroke="#555" stroke-width="1"/>
-    <rect x="300" y="180" width="1320" height="20" fill="#444" stroke="#555" stroke-width="1"/>
+    <g id="cableTrays">
+      <rect x="300" y="150" width="1320" height="20" fill="#666" stroke="#777" stroke-width="1"/>
+      <rect x="300" y="180" width="1320" height="20" fill="#666" stroke="#777" stroke-width="1"/>
     
     <!-- Support beams -->
-    <rect x="500" y="150" width="8" height="50" fill="#666"/>
-    <rect x="800" y="150" width="8" height="50" fill="#666"/>
-    <rect x="1100" y="150" width="8" height="50" fill="#666"/>
-    <rect x="1400" y="150" width="8" height="50" fill="#666"/>
+      <rect x="500" y="150" width="8" height="50" fill="#888"/>
+      <rect x="800" y="150" width="8" height="50" fill="#888"/>
+      <rect x="1100" y="150" width="8" height="50" fill="#888"/>
+      <rect x="1400" y="150" width="8" height="50" fill="#888"/>
   </g>
   
   <!-- Wall Panels -->
   <g id="wallPanels">
     <!-- Left wall panels -->
-    <rect x="20" y="100" width="30" height="200" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+      <rect x="20" y="100" width="30" height="200" fill="#444" stroke="#666" stroke-width="1"/>
     <rect x="25" y="120" width="20" height="20" fill="#00aa00" opacity="0.8"/>
-    <rect x="25" y="150" width="20" height="30" fill="#333"/>
+      <rect x="25" y="150" width="20" height="30" fill="#555"/>
     
     <!-- Right wall panels -->
-    <rect x="1870" y="120" width="30" height="180" fill="#2a2a2a" stroke="#444" stroke-width="1"/>
+      <rect x="1870" y="120" width="30" height="180" fill="#444" stroke="#666" stroke-width="1"/>
     <rect x="1875" y="140" width="20" height="20" fill="#ff4400" opacity="0.8"/>
-    <rect x="1875" y="170" width="20" height="30" fill="#333"/>
+      <rect x="1875" y="170" width="20" height="30" fill="#555"/>
   </g>
   
   <!-- Ceiling Lights -->
@@ -86,18 +86,18 @@
   </g>
   
   <!-- Ventilation -->
-  <g id="ventilation">
-    <rect x="400" y="40" width="120" height="20" fill="#333" stroke="#555" stroke-width="1"/>
-    <rect x="600" y="40" width="120" height="20" fill="#333" stroke="#555" stroke-width="1"/>
-    <rect x="1200" y="40" width="120" height="20" fill="#333" stroke="#555" stroke-width="1"/>
-    <rect x="1400" y="40" width="120" height="20" fill="#333" stroke="#555" stroke-width="1"/>
+    <g id="ventilation">
+      <rect x="400" y="40" width="120" height="20" fill="#555" stroke="#777" stroke-width="1"/>
+      <rect x="600" y="40" width="120" height="20" fill="#555" stroke="#777" stroke-width="1"/>
+      <rect x="1200" y="40" width="120" height="20" fill="#555" stroke="#777" stroke-width="1"/>
+      <rect x="1400" y="40" width="120" height="20" fill="#555" stroke="#777" stroke-width="1"/>
   </g>
   
   <!-- Floor cables -->
-  <g id="floorCables">
-    <path d="M 200 750 Q 500 730 800 750 Q 1100 770 1400 750 Q 1600 730 1700 750" 
-          stroke="#444" stroke-width="3" fill="none" opacity="0.6"/>
-    <path d="M 180 780 Q 400 760 600 780 Q 900 800 1200 780 Q 1500 760 1720 780" 
-          stroke="#444" stroke-width="3" fill="none" opacity="0.6"/>
+    <g id="floorCables">
+      <path d="M 200 750 Q 500 730 800 750 Q 1100 770 1400 750 Q 1600 730 1700 750" 
+          stroke="#666" stroke-width="3" fill="none" opacity="0.6"/>
+      <path d="M 180 780 Q 400 760 600 780 Q 900 800 1200 780 Q 1500 760 1720 780" 
+          stroke="#666" stroke-width="3" fill="none" opacity="0.6"/>
   </g>
 </svg>

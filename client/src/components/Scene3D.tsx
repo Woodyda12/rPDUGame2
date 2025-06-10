@@ -33,7 +33,7 @@ export default function Scene3D() {
           position={[(i - 3.5) * 2, 0.01, (j - 3.5) * 2]}
         >
           <planeGeometry args={[1.8, 1.8]} />
-          <meshStandardMaterial color="#333" transparent opacity={0.5} />
+          <meshStandardMaterial color="#555" transparent opacity={0.5} />
         </mesh>
       ))
     ),
@@ -147,7 +147,7 @@ export default function Scene3D() {
   return (
     <>
       {/* Data center lighting */}
-      <ambientLight intensity={0.3} color="#1a1a2e" />
+      <ambientLight intensity={0.5} color="#2c3350" />
       <directionalLight position={[5, 10, 5]} intensity={0.8} color="#ffffff" castShadow />
       <pointLight position={[-3, 2, -2]} intensity={0.5} color="#00ff00" />
       <pointLight position={[3, 2, -2]} intensity={0.5} color="#00aa00" />
@@ -156,7 +156,7 @@ export default function Scene3D() {
       {/* Data center floor - raised floor tiles */}
       <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
         <planeGeometry args={[15, 15]} />
-        <meshStandardMaterial color="#2a2a2a" />
+        <meshStandardMaterial color="#444" />
       </mesh>
       
       {/* Floor grid pattern */}
@@ -166,7 +166,7 @@ export default function Scene3D() {
       <group ref={keypadRef} position={[-3, 1.2, -2]}>
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[0.8, 1.5, 0.3]} />
-          <meshStandardMaterial color="#1a1a1a" />
+          <meshStandardMaterial color="#3a3a3a" />
         </mesh>
         <mesh position={[0, 0.3, 0.16]}>
           <boxGeometry args={[0.6, 0.4, 0.02]} />
@@ -174,7 +174,7 @@ export default function Scene3D() {
         </mesh>
         <mesh position={[0, -0.2, 0.16]}>
           <boxGeometry args={[0.7, 0.8, 0.02]} />
-          <meshStandardMaterial color="#333333" />
+          <meshStandardMaterial color="#555" />
         </mesh>
       </group>
       
@@ -220,7 +220,7 @@ export default function Scene3D() {
       {/* Network Panel (was painting) */}
       <mesh ref={paintingRef} position={[3, 1.5, -2]} rotation={[0, -Math.PI / 6, 0]}>
         <boxGeometry args={[1.2, 0.8, 0.1]} />
-        <meshStandardMaterial color="#2a2a2a" />
+        <meshStandardMaterial color="#555" />
       </mesh>
       <mesh position={[3, 1.5, -1.95]} rotation={[0, -Math.PI / 6, 0]}>
         <planeGeometry args={[1, 0.6]} />
@@ -252,11 +252,11 @@ export default function Scene3D() {
       {/* Wall-mounted electrical panels */}
       <mesh position={[-4, 1.5, 0]}>
         <boxGeometry args={[0.2, 1, 0.8]} />
-        <meshStandardMaterial color="#333333" />
+        <meshStandardMaterial color="#555" />
       </mesh>
       <mesh position={[4, 1.5, 0]}>
         <boxGeometry args={[0.2, 1, 0.8]} />
-        <meshStandardMaterial color="#333333" />
+        <meshStandardMaterial color="#555" />
       </mesh>
     </>
   );
