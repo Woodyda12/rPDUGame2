@@ -1,4 +1,4 @@
-import { useRef, useCallback } from "react";
+import React, { useRef, useCallback } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Mesh, Raycaster, Vector2, Color } from "three";
 import { useEscapeRoom } from "../lib/stores/useEscapeRoom";

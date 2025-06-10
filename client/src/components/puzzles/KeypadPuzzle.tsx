@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
 export default function KeypadPuzzle() {

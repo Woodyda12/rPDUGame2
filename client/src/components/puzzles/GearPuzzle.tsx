@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
 export default function GearPuzzle() {
@@ -20,10 +20,7 @@ export default function GearPuzzle() {
       setGear2Placed(true);
     }
     
-    // Check if both gears are placed
-    const bothPlaced = (slotId === "slot1" && gearId === "gear1" && gear2Placed) ||
-                      (slotId === "slot2" && gearId === "gear2" && gear1Placed) ||
-                      (slotId === "slot1" && gearId === "gear1" && slotId === "slot2" && gearId === "gear2");
+    // Check if both gears are placed after this drop
     
     if ((slotId === "slot1" && gearId === "gear1" && gear2Placed) ||
         (slotId === "slot2" && gearId === "gear2" && gear1Placed)) {
