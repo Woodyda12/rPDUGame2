@@ -31,7 +31,15 @@ export default function EscapeRoom() {
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative', backgroundColor: '#0a0a0a' }}>
+    <div style={{ 
+      width: '100%', 
+      height: '100%', 
+      position: 'relative',
+      backgroundImage: 'url(/datacenter-bg.svg)',
+      backgroundSize: 'cover',
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat'
+    }}>
       <Canvas
         camera={{
           position: [0, 1.6, 5],
@@ -46,7 +54,7 @@ export default function EscapeRoom() {
           maxHeight: '100%',
           margin: '0 auto',
           display: 'block',
-          background: '#111'
+          background: 'rgba(17, 17, 17, 0.7)'
         }}
       >
         <Suspense fallback={null}>

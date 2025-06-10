@@ -1,4 +1,4 @@
-import React, { useRef, useCallback } from "react";
+import React, { useRef, useCallback, useState } from "react";
 import { useFrame, useThree } from "@react-three/fiber";
 import { Mesh, Raycaster, Vector2, Color } from "three";
 import { useEscapeRoom } from "../lib/stores/useEscapeRoom";
@@ -8,6 +8,7 @@ export default function Scene3D() {
   const { camera, gl } = useThree();
   const { solvePuzzle, addColorToSequence } = useEscapeRoom();
   const { phase } = useGame();
+  const [isHovering, setIsHovering] = useState(false);
   
   // Object refs
   const keypadRef = useRef<any>(null);
@@ -19,6 +20,41 @@ export default function Scene3D() {
 
   const raycaster = new Raycaster();
   const mouse = new Vector2();
+
+  const handleMouseMove = useCallback((event: MouseEvent) => {
+    if (phase !== "playing") return;
+    
+    const canvas = gl.domElement;
+    const rect = canvas.getBoundingClientRect();
+    
+    mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+    mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+    
+    raycaster.setFromCamera(mouse, camera);
+    
+    const objects = [
+      keypadRef.current,
+      paintingRef.current,
+      redBoxRef.current,
+      greenBoxRef.current,
+      blueBoxRef.current,
+      yellowBoxRef.current
+    ].filter(Boolean) as Mesh[];
+    
+    const intersects = raycaster.intersectObjects(objects, true);
+    
+    if (intersects.length > 0) {
+      if (!isHovering) {
+        setIsHovering(true);
+        canvas.style.cursor = 'pointer';
+      }
+    } else {
+      if (isHovering) {
+        setIsHovering(false);
+        canvas.style.cursor = 'default';
+      }
+    }
+  }, [camera, gl, phase, isHovering, keypadRef, paintingRef, redBoxRef, greenBoxRef, blueBoxRef, yellowBoxRef]);
 
   const handleClick = useCallback((event: MouseEvent) => {
     if (phase !== "playing") return;
