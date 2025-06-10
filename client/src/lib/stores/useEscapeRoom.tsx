@@ -40,31 +40,10 @@ export const useEscapeRoom = create<EscapeRoomState>()(
     addColorToSequence: (color: string) => {
       set((state) => {
         const newSequence = [...state.colorSequence, color];
-        
-        // Check if sequence matches the target: "rgby"
         const targetSequence = "rgby";
         const currentSequenceStr = newSequence.join("");
         
-        // If sequence is getting too long or doesn't match start of target, reset
-        if (newSequence.length > 4 || !targetSequence.startsWith(currentSequenceStr)) {
-          if (currentSequenceStr === targetSequence) {
-            // Sequence is correct! Solve puzzle 1
-            const newSolved = [...state.solved];
-            newSolved[1] = true;
-            const isComplete = newSolved.every(Boolean);
-            
-            return {
-              colorSequence: [],
-              solved: newSolved,
-              isComplete
-            };
-          } else {
-            // Reset sequence if it doesn't match
-            return { colorSequence: [] };
-          }
-        }
-        
-        // Check if we completed the sequence
+        // Check if we completed the sequence correctly
         if (currentSequenceStr === targetSequence) {
           const newSolved = [...state.solved];
           newSolved[1] = true;
@@ -77,6 +56,12 @@ export const useEscapeRoom = create<EscapeRoomState>()(
           };
         }
         
+        // If sequence is getting too long or doesn't match the start of target, reset
+        if (newSequence.length > 4 || !targetSequence.startsWith(currentSequenceStr)) {
+          return { colorSequence: [] };
+        }
+        
+        // Continue building sequence
         return { colorSequence: newSequence };
       });
     },

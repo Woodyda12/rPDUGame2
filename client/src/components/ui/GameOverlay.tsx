@@ -3,6 +3,7 @@ import SliderPuzzle from "../puzzles/SliderPuzzle";
 import GearPuzzle from "../puzzles/GearPuzzle";
 import ROT13Puzzle from "../puzzles/ROT13Puzzle";
 import HintSystem from "./HintSystem";
+import SequenceIndicator from "./SequenceIndicator";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
 export default function GameOverlay() {
@@ -63,6 +64,7 @@ export default function GameOverlay() {
           </div>
         </div>
         
+        <SequenceIndicator />
         <HintSystem />
       </div>
     </div>

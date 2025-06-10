@@ -3,12 +3,12 @@ import { useGame } from "../../lib/stores/useGame";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
 const HINTS = {
-  0: "The PDU access code is π (pi) rounded to 3 digits: 3.14",
-  1: "Click the server components in this order: Red, Green, Blue, Yellow",
-  2: "Click on the network monitoring panel to establish connection",
-  3: "Adjust the power level slider to exactly 42% for optimal PDU performance",
-  4: "Drag the wrench tool to TOOL slot and power connector to PWR slot",
-  5: "Error code 748 is the same number - just enter 748 to clear the diagnostic"
+  0: "Mathematics governs access. The circular constant, truncated to whole cents.",
+  1: "Primary colors in spectrum order, then the warm fusion of first two.",
+  2: "Sometimes the oldest solutions work best. Check what's monitoring the grid.",
+  3: "The answer to life, the universe, and everything... but as a percentage.",
+  4: "A mechanic needs their tools. Connect power where power belongs.",
+  5: "RPDU 📱"
 };
 
 export default function HintSystem() {
@@ -35,7 +35,7 @@ export default function HintSystem() {
   if (availableHints.length === 0) return null;
 
   return (
-    <div className="absolute top-20 right-4 max-w-xs pointer-events-auto">
+    <div className="absolute top-4 right-20 max-w-xs pointer-events-auto">
       <div className="bg-black bg-opacity-90 border border-yellow-500 p-3 rounded font-mono text-sm">
         <div className="text-yellow-400 mb-2 text-center">Hint System</div>
         <div className="text-xs text-gray-400 mb-2 text-center">
