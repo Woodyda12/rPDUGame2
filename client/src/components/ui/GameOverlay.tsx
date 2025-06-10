@@ -23,19 +23,16 @@ export default function GameOverlay() {
       {/* Puzzle UI Elements */}
       <div className="relative w-full h-full">
         
-        {/* Slider Puzzle */}
-        <div className="absolute top-2 left-2 pointer-events-auto">
+        {/* Control Panels - Bottom Right */}
+        <div className="absolute bottom-4 right-4 space-y-2 pointer-events-auto">
           <SliderPuzzle />
-        </div>
-        
-        {/* Gear Puzzle */}
-        <div className="absolute top-16 left-2 pointer-events-auto">
           <GearPuzzle />
+          <ROT13Puzzle />
         </div>
         
-        {/* ROT13 Puzzle */}
-        <div className="absolute top-32 left-2 pointer-events-auto">
-          <ROT13Puzzle />
+        {/* Access Panel - Bottom Left */}
+        <div className="absolute bottom-4 left-4 pointer-events-auto">
+          <KeypadPuzzle />
         </div>
         
         {/* PDU Status Display */}
