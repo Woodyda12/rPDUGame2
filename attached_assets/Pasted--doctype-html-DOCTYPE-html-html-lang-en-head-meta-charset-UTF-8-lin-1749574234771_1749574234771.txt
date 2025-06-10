@@ -1,0 +1,71 @@
+<!doctype html>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Desktop Escape Room Web Game</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+<head>
+<meta charset="UTF-8">
+<title>Escape Room</title>
+<style>
+body{margin:0;display:flex;justify-content:center;align-items:center;height:100vh;background:#222;color:#fff;font-family:sans-serif}
+#game{position:relative;width:800px;height:600px}
+canvas{display:block;background:#000}
+.ui{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none}
+.puzzle{position:absolute;border:1px solid #555;padding:4px;background:#000a;border-radius:4px}
+#slider{width:120px}
+.gear{font-size:32px;cursor:grab;margin:2px}
+.drop{width:40px;height:40px;border:1px dashed #999;display:inline-block;margin:2px}
+</style>
+</head>
+<body>
+<div id="game">
+<canvas id="c" width="800" height="600"></canvas>
+<div class="ui">
+<div id="range" class="puzzle" style="top:10px;left:10px">
+<input id="slider" type="range" min="0" max="100" value="0">
+</div>
+<div id="gears" class="puzzle" style="top:60px;left:10px">
+<div id="g1" class="gear" draggable="true">⚙️</div>
+<div id="g2" class="gear" draggable="true">⚙️</div>
+<div id="p1" class="drop"></div>
+<div id="p2" class="drop"></div>
+</div>
+<div id="rot" class="puzzle" style="top:120px;left:10px">
+<span>Note ROT13: 748</span>
+<input id="rotinput" size="4">
+</div>
+</div>
+</div>
+<script type="module">
+import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
+const c=document.getElementById('c');
+const scene=new THREE.Scene();
+const camera=new THREE.PerspectiveCamera(70,800/600,0.1,100);camera.position.set(0,1.6,5);
+const renderer=new THREE.WebGLRenderer({canvas:c});renderer.setSize(800,600);
+scene.add(new THREE.AmbientLight(0xffffff));
+const floor=new THREE.Mesh(new THREE.PlaneGeometry(10,10),new THREE.MeshStandardMaterial({color:0x444444}));floor.rotation.x=-Math.PI/2;scene.add(floor);
+const keypad=new THREE.Mesh(new THREE.BoxGeometry(.5,.5,.2),new THREE.MeshStandardMaterial({color:0x888888}));keypad.position.set(-2,1,-1);scene.add(keypad);
+const colors=['red','green','blue','yellow'].map((c,i)=>{const m=new THREE.Mesh(new THREE.BoxGeometry(.4,.4,.4),new THREE.MeshStandardMaterial({color:c}));m.position.set(-1.5+i*0.6,.3,0);scene.add(m);return m;});
+const painting=new THREE.Mesh(new THREE.PlaneGeometry(1,1),new THREE.MeshStandardMaterial({color:0x999999}));painting.position.set(2,1,-2);painting.rotation.y=Math.PI/4;scene.add(painting);
+const posts=[new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.5,16),new THREE.MeshStandardMaterial({color:0x333333})),new THREE.Mesh(new THREE.CylinderGeometry(.1,.1,.5,16),new THREE.MeshStandardMaterial({color:0x333333}))];posts[0].position.set(-1,.25,2);posts[1].position.set(1,.25,2);posts.forEach(p=>scene.add(p));
+const ray=new THREE.Raycaster();const mouse=new THREE.Vector2();
+let seq=[],solved=[0,0,0,0,0,0],start=Date.now();
+function done(i){if(!solved[i]){solved[i]=1;if(solved.every(Boolean))alert(`Escaped in ${((Date.now()-start)/1000)|0} s – screenshot this!`);}}
+function click(e){const r=c.getBoundingClientRect();mouse.x=((e.clientX-r.left)/r.width)*2-1;mouse.y=-((e.clientY-r.top)/r.height)*2+1;ray.setFromCamera(mouse,camera);const hit=ray.intersectObjects([keypad,painting,...colors]);if(!hit.length)return;const o=hit[0].object;if(o===keypad)done(prompt('Code?')==='314'?0:9);else if(o===painting)done(2);else if(colors.includes(o)){seq.push(o.material.color.getStyle()[0]);if(seq.join('').startsWith('rgb y'.replace(/ /g,''))&&seq.length===4)done(1);}}
+c.addEventListener('pointerdown',click);
+function animate(){requestAnimationFrame(animate);renderer.render(scene,camera);}animate();
+document.getElementById('slider').oninput=e=>Math.abs(e.target.value-42)<=1&&done(3);
+['g1','g2'].forEach(id=>document.getElementById(id).addEventListener('dragstart',ev=>ev.dataTransfer.setData('id',id)));
+['p1','p2'].forEach(id=>{const el=document.getElementById(id);el.addEventListener('dragover',e=>e.preventDefault());el.addEventListener('drop',e=>{e.preventDefault();el.appendChild(document.getElementById(e.dataTransfer.getData('id')));if([...document.querySelectorAll('.drop')].every(d=>d.children.length))done(4);});});
+document.getElementById('rotinput').addEventListener('input',e=>e.target.value.trim()==='748'&&done(5));
+</script>
+</body>
+</html>
