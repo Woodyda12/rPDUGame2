@@ -4,7 +4,7 @@ import { useGame } from "@/lib/stores/useGame";
 import { useAudio } from "@/lib/stores/useAudio";
 import { Button } from "./button";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "./card";
-import { Confetti } from "../game/Confetti";
+import { Confetti } from "@/components/game/Confetti";
 import { VolumeX, Volume2, RotateCw, Trophy } from "lucide-react";
 
 export function Interface() {
