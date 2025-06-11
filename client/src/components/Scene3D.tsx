@@ -15,9 +15,13 @@ export default function Scene3D() {
   const keypadRef = useRef<any>(null);
   const paintingRef = useRef<Mesh>(null);
   const redBoxRef = useRef<Mesh>(null);
+  const redBoxTopRef = useRef<Mesh>(null);
   const greenBoxRef = useRef<Mesh>(null);
+  const greenBoxTopRef = useRef<Mesh>(null);
   const blueBoxRef = useRef<Mesh>(null);
+  const blueBoxTopRef = useRef<Mesh>(null);
   const yellowBoxRef = useRef<Mesh>(null);
+  const yellowBoxTopRef = useRef<Mesh>(null);
 
   // reuse Raycaster and Vector2 instances to avoid allocations
   const raycaster = useRef(new Raycaster());
@@ -65,9 +69,13 @@ export default function Scene3D() {
       keypadRef.current,
       paintingRef.current,
       redBoxRef.current,
+      redBoxTopRef.current,
       greenBoxRef.current,
+      greenBoxTopRef.current,
       blueBoxRef.current,
-      yellowBoxRef.current
+      blueBoxTopRef.current,
+      yellowBoxRef.current,
+      yellowBoxTopRef.current
     ].filter(Boolean) as Mesh[];
     
     const intersects = raycaster.current.intersectObjects(objects, true);
@@ -100,9 +108,13 @@ export default function Scene3D() {
       keypadRef.current,
       paintingRef.current,
       redBoxRef.current,
+      redBoxTopRef.current,
       greenBoxRef.current,
+      greenBoxTopRef.current,
       blueBoxRef.current,
-      yellowBoxRef.current
+      blueBoxTopRef.current,
+      yellowBoxRef.current,
+      yellowBoxTopRef.current
     ].filter(Boolean) as Mesh[];
     
     const intersects = raycaster.current.intersectObjects(objects, true);
@@ -117,13 +129,29 @@ export default function Scene3D() {
         }
       } else if (clickedObject === paintingRef.current) {
         solvePuzzle(2);
-      } else if (clickedObject === redBoxRef.current || clickedObject.parent?.children.includes(redBoxRef.current!)) {
+      } else if (
+        clickedObject === redBoxRef.current ||
+        clickedObject === redBoxTopRef.current ||
+        clickedObject.parent?.children.includes(redBoxRef.current!)
+      ) {
         addColorToSequence('r');
-      } else if (clickedObject === greenBoxRef.current || clickedObject.parent?.children.includes(greenBoxRef.current!)) {
+      } else if (
+        clickedObject === greenBoxRef.current ||
+        clickedObject === greenBoxTopRef.current ||
+        clickedObject.parent?.children.includes(greenBoxRef.current!)
+      ) {
         addColorToSequence('g');
-      } else if (clickedObject === blueBoxRef.current || clickedObject.parent?.children.includes(blueBoxRef.current!)) {
+      } else if (
+        clickedObject === blueBoxRef.current ||
+        clickedObject === blueBoxTopRef.current ||
+        clickedObject.parent?.children.includes(blueBoxRef.current!)
+      ) {
         addColorToSequence('b');
-      } else if (clickedObject === yellowBoxRef.current || clickedObject.parent?.children.includes(yellowBoxRef.current!)) {
+      } else if (
+        clickedObject === yellowBoxRef.current ||
+        clickedObject === yellowBoxTopRef.current ||
+        clickedObject.parent?.children.includes(yellowBoxRef.current!)
+      ) {
         addColorToSequence('y');
       }
     }
@@ -184,7 +212,7 @@ export default function Scene3D() {
           <boxGeometry args={[0.6, 0.8, 0.4]} />
           <meshStandardMaterial color="#8B0000" />
         </mesh>
-        <mesh position={[-2, 0.3, 0.21]}>
+        <mesh ref={redBoxTopRef} position={[-2, 0.3, 0.21]}>
           <boxGeometry args={[0.4, 0.1, 0.02]} />
           <meshStandardMaterial color="#ff0000" emissive="#330000" />
         </mesh>
@@ -193,7 +221,7 @@ export default function Scene3D() {
           <boxGeometry args={[0.6, 0.8, 0.4]} />
           <meshStandardMaterial color="#006400" />
         </mesh>
-        <mesh position={[-0.7, 0.3, 0.21]}>
+        <mesh ref={greenBoxTopRef} position={[-0.7, 0.3, 0.21]}>
           <boxGeometry args={[0.4, 0.1, 0.02]} />
           <meshStandardMaterial color="#00ff00" emissive="#003300" />
         </mesh>
@@ -202,7 +230,7 @@ export default function Scene3D() {
           <boxGeometry args={[0.6, 0.8, 0.4]} />
           <meshStandardMaterial color="#000080" />
         </mesh>
-        <mesh position={[0.7, 0.3, 0.21]}>
+        <mesh ref={blueBoxTopRef} position={[0.7, 0.3, 0.21]}>
           <boxGeometry args={[0.4, 0.1, 0.02]} />
           <meshStandardMaterial color="#0080ff" emissive="#000033" />
         </mesh>
@@ -211,7 +239,7 @@ export default function Scene3D() {
           <boxGeometry args={[0.6, 0.8, 0.4]} />
           <meshStandardMaterial color="#B8860B" />
         </mesh>
-        <mesh position={[2, 0.3, 0.21]}>
+        <mesh ref={yellowBoxTopRef} position={[2, 0.3, 0.21]}>
           <boxGeometry args={[0.4, 0.1, 0.02]} />
           <meshStandardMaterial color="#ffff00" emissive="#333300" />
         </mesh>
