@@ -14,9 +14,9 @@ export function Interface() {
 
   // Handle clicks on the interface in the ready phase to start the game
   useEffect(() => {
-    if (phase === "ready") {
+    if (phase === "title") {
       const handleClick = () => {
-        document.activeElement?.blur(); // Remove focus from any button
+        (document.activeElement as HTMLElement | null)?.blur(); // Remove focus from any button
         const event = new KeyboardEvent("keydown", { code: "Space" });
         window.dispatchEvent(event);
       };
@@ -52,7 +52,7 @@ export function Interface() {
       </div>
       
       {/* Game completion overlay */}
-      {phase === "ended" && (
+      {phase === "success" && (
         <div className="fixed inset-0 flex items-center justify-center z-20 bg-neutral-900/40">
           <Card className="w-full max-w-md mx-4 shadow-lg">
             <CardHeader>
