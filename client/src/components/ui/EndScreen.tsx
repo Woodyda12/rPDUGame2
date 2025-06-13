@@ -28,7 +28,7 @@ export default function EndScreen() {
           <div className="mb-8">
             {isSuccess ? (
               <>
-                <p className="text-2xl text-white mb-4">Power restored. Access granted.</p>
+                <p className="text-2xl text-white mb-4">Controller online. Door unlocked.</p>
                 <p className="text-lg text-green-300">
                   Time remaining: {minutes}:{seconds.toString().padStart(2, '0')}
                 </p>

@@ -13,7 +13,7 @@ export default function Scene3D() {
   
   // Object refs
   const keypadRef = useRef<any>(null);
-  const paintingRef = useRef<Mesh>(null);
+  const phaseMeterRef = useRef<Mesh>(null);
   const redBoxRef = useRef<Mesh>(null);
   const redBoxTopRef = useRef<Mesh>(null);
   const greenBoxRef = useRef<Mesh>(null);
@@ -67,7 +67,7 @@ export default function Scene3D() {
     
     const objects = [
       keypadRef.current,
-      paintingRef.current,
+      phaseMeterRef.current,
       redBoxRef.current,
       redBoxTopRef.current,
       greenBoxRef.current,
@@ -106,7 +106,7 @@ export default function Scene3D() {
     
     const objects = [
       keypadRef.current,
-      paintingRef.current,
+      phaseMeterRef.current,
       redBoxRef.current,
       redBoxTopRef.current,
       greenBoxRef.current,
@@ -123,11 +123,11 @@ export default function Scene3D() {
       const clickedObject = intersects[0].object;
       
       if (clickedObject === keypadRef.current || clickedObject.parent === keypadRef.current) {
-        const code = prompt('Enter PDU access code:');
+        const code = prompt('Enter breaker reset code:');
         if (code === '314') {
           solvePuzzle(0);
         }
-      } else if (clickedObject === paintingRef.current) {
+      } else if (clickedObject === phaseMeterRef.current) {
         solvePuzzle(2);
       } else if (
         clickedObject === redBoxRef.current ||
@@ -245,8 +245,8 @@ export default function Scene3D() {
         </mesh>
       </group>
       
-      {/* Network Panel (was painting) */}
-      <mesh ref={paintingRef} position={[3, 1.5, -2]} rotation={[0, -Math.PI / 6, 0]}>
+      {/* Phase Meter */}
+      <mesh ref={phaseMeterRef} position={[3, 1.5, -2]} rotation={[0, -Math.PI / 6, 0]}>
         <boxGeometry args={[1.2, 0.8, 0.1]} />
         <meshStandardMaterial color="#555" />
       </mesh>

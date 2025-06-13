@@ -27,7 +27,13 @@ export default function TitleScreen() {
             </p>
             
             <div className="space-y-2">
-              <p>🛠 Drag and drop tools to fix five critical issues.</p>
+              <p>🛠 Resolve six power tasks to bring the rack online:</p>
+              <p className="text-sm pl-4">1. Reset the breaker</p>
+              <p className="text-sm pl-4">2. Repatch the whip</p>
+              <p className="text-sm pl-4">3. Balance the phases</p>
+              <p className="text-sm pl-4">4. Replace the blown fuse</p>
+              <p className="text-sm pl-4">5. Bypass the EPO circuit</p>
+              <p className="text-sm pl-4">6. Reboot the controller</p>
               <p>🔍 Hover over components to examine them.</p>
               <p>✅ Solve the issues in the correct order.</p>
               <p>⏱ You have 10 minutes before the backup power fails.</p>

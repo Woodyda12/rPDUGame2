@@ -42,25 +42,25 @@ function GameOverlay() {
         {/* PDU Status Display */}
         <div className="absolute top-4 left-4 pointer-events-auto">
           <div className="bg-gray-800 bg-opacity-90 border border-gray-500 p-3 rounded font-mono text-sm">
-            <div className="text-yellow-400 mb-2">PDU Status:</div>
+            <div className="text-yellow-400 mb-2">PDU Tasks:</div>
             <div className="space-y-1">
-              <div className={`${solved[0] ? 'text-green-400' : 'text-red-400'}`}>
-                ACCESS: {solved[0] ? 'UNLOCKED' : 'LOCKED'}
+              <div className={`${solved[0] ? 'text-green-400' : 'text-red-400'}`}> 
+                BREAKER: {solved[0] ? 'RESET' : 'TRIPPED'}
               </div>
-              <div className={`${solved[1] ? 'text-green-400' : 'text-red-400'}`}>
-                SEQUENCE: {solved[1] ? 'COMPLETE' : 'PENDING'}
+              <div className={`${solved[1] ? 'text-green-400' : 'text-red-400'}`}> 
+                WHIP: {solved[1] ? 'PATCHED' : 'FAULT'}
               </div>
-              <div className={`${solved[2] ? 'text-green-400' : 'text-red-400'}`}>
-                NETWORK: {solved[2] ? 'ONLINE' : 'OFFLINE'}
+              <div className={`${solved[2] ? 'text-green-400' : 'text-red-400'}`}> 
+                PHASES: {solved[2] ? 'BALANCED' : 'IMBALANCED'}
               </div>
-              <div className={`${solved[3] ? 'text-green-400' : 'text-red-400'}`}>
-                POWER: {solved[3] ? 'STABLE' : 'UNSTABLE'}
+              <div className={`${solved[3] ? 'text-green-400' : 'text-red-400'}`}> 
+                FUSE: {solved[3] ? 'REPLACED' : 'BLOWN'}
               </div>
-              <div className={`${solved[4] ? 'text-green-400' : 'text-red-400'}`}>
-                TOOLS: {solved[4] ? 'READY' : 'MISSING'}
+              <div className={`${solved[4] ? 'text-green-400' : 'text-red-400'}`}> 
+                EPO: {solved[4] ? 'BYPASSED' : 'ACTIVE'}
               </div>
-              <div className={`${solved[5] ? 'text-green-400' : 'text-red-400'}`}>
-                DIAG: {solved[5] ? 'CLEAR' : 'ERROR'}
+              <div className={`${solved[5] ? 'text-green-400' : 'text-red-400'}`}> 
+                CTRL: {solved[5] ? 'ONLINE' : 'OFFLINE'}
               </div>
             </div>
           </div>

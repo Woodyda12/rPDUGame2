@@ -19,7 +19,7 @@ function SequenceIndicator() {
   return (
     <div className="absolute top-4 left-1/2 transform -translate-x-1/2 pointer-events-auto">
       <div className="bg-gray-800 bg-opacity-90 border border-gray-500 p-2 rounded font-mono text-xs">
-        <div className="text-gray-400 mb-1 text-center">Activation Sequence</div>
+        <div className="text-gray-400 mb-1 text-center">Whip Patch Sequence</div>
         <div className="flex gap-1">
           {targetSequence.map((targetColor, index) => {
             const isActive = index < colorSequence.length;
