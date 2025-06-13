@@ -19,14 +19,14 @@ function KeypadPuzzle() {
   if (solved[0]) {
     return (
       <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
-        <span className="text-green-400">✓ PDU Access Unlocked</span>
+        <span className="text-green-400">✓ Breaker Reset</span>
       </div>
     );
   }
 
   return (
     <div className="border border-red-500 p-2 bg-gray-800 bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
-      <div className="text-red-400 text-sm mb-2 font-mono">PDU Access Code:</div>
+      <div className="text-red-400 text-sm mb-2 font-mono">Breaker Reset Code:</div>
       <div className="flex gap-1">
         <input
           type="text"

@@ -19,14 +19,14 @@ function SliderPuzzle() {
   if (solved[3]) {
     return (
       <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
-        <span className="text-green-400">✓ Power Level Calibrated</span>
+        <span className="text-green-400">✓ Fuse Replaced</span>
       </div>
     );
   }
 
   return (
     <div className="border border-orange-500 p-2 bg-gray-800 bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
-      <div className="text-orange-400 text-sm mb-1 font-mono">Power Level: {value}%</div>
+      <div className="text-orange-400 text-sm mb-1 font-mono">Fuse Rating: {value}%</div>
       <input
         type="range"
         min="0"

@@ -18,14 +18,14 @@ function ROT13Puzzle() {
   if (solved[5]) {
     return (
       <div className="border border-green-500 p-2 bg-green-900 bg-opacity-90 rounded">
-        <span className="text-green-400">✓ Diagnostic Complete</span>
+        <span className="text-green-400">✓ Controller Rebooted</span>
       </div>
     );
   }
 
   return (
     <div className="border border-purple-500 p-2 bg-gray-800 bg-opacity-90 rounded hover:bg-opacity-100 transition-all duration-200 cursor-pointer">
-      <div className="text-purple-400 text-sm mb-1 font-mono">Error Code: RPDU</div>
+      <div className="text-purple-400 text-sm mb-1 font-mono">Reboot Code: RPDU</div>
       <input
         type="text"
         value={input}

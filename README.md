@@ -1,6 +1,15 @@
 # PDU Game
 
-This is a simple escape room style game built with React and Three.js. The objective is to solve a series of puzzles to repair a rack PDU and escape the data center.
+This is a simple escape room style game built with React and Three.js. The objective is to solve six power-related puzzles to repair a rack PDU and escape the data center.
+
+## Puzzles
+
+1. **Reset Breaker** – enter the correct code to clear the tripped breaker.
+2. **Repatch Whip** – click the colored connectors in the correct order.
+3. **Balance Phases** – interact with the phase meter to stabilize the load.
+4. **Replace Fuse** – adjust the fuse rating slider to the target value.
+5. **Bypass EPO** – drag the jumpers into place to bypass the EPO circuit.
+6. **Reboot Controller** – decode the displayed string to restart the PDU.
 
 ## Development
 

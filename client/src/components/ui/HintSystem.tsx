@@ -4,12 +4,12 @@ import { useGame } from "../../lib/stores/useGame";
 import { useEscapeRoom } from "../../lib/stores/useEscapeRoom";
 
 const HINTS = {
-  0: "Mathematics governs access. The circular constant, truncated to whole cents.",
-  1: "Primary colors in spectrum order, then the warm fusion of first two.",
-  2: "Sometimes the oldest solutions work best. Check what's monitoring the grid.",
-  3: "The answer to life, the universe, and everything... but as a percentage.",
-  4: "A mechanic needs their tools. Connect power where power belongs.",
-  5: "RPDU 📱"
+  0: "Mathematics controls the switch. Use the circular constant to reset.",
+  1: "Patch the whip by following the standard color order.",
+  2: "Tap the old phase meter to balance the load.",
+  3: "Set the replacement fuse to the meaning of life percent.",
+  4: "Jump the safety link with the correct connectors.",
+  5: "Decode the reboot string on the controller display."
 };
 
 export default function HintSystem() {
@@ -62,12 +62,12 @@ export default function HintSystem() {
                   : 'bg-yellow-700 hover:bg-yellow-600 text-yellow-100 cursor-pointer'
               }`}
             >
-              {puzzleIndex === 0 && "PDU Access"}
-              {puzzleIndex === 1 && "Sequence"}
-              {puzzleIndex === 2 && "Network"}
-              {puzzleIndex === 3 && "Power Level"}
-              {puzzleIndex === 4 && "Tools"}
-              {puzzleIndex === 5 && "Diagnostics"}
+              {puzzleIndex === 0 && "Reset Breaker"}
+              {puzzleIndex === 1 && "Repatch Whip"}
+              {puzzleIndex === 2 && "Balance Phases"}
+              {puzzleIndex === 3 && "Replace Fuse"}
+              {puzzleIndex === 4 && "Bypass EPO"}
+              {puzzleIndex === 5 && "Reboot Controller"}
             </button>
           ))}
         </div>
